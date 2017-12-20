@@ -3,6 +3,7 @@
 #include "CoopGameProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 ACoopGameProjectile::ACoopGameProjectile() 
 {
@@ -40,4 +41,6 @@ void ACoopGameProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 
 		Destroy();
 	}
+
+	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionEffect, GetActorLocation());
 }

@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "CoopGameProjectile.generated.h"
 
+class UParticleSystem; // Forward Declaring
+
 UCLASS(config=Game)
 class ACoopGameProjectile : public AActor
 {
@@ -19,6 +21,8 @@ class ACoopGameProjectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	class UProjectileMovementComponent* ProjectileMovement;
 
+	UPROPERTY(EditDefaultsOnly, Category = "FX")
+	UParticleSystem* ExplosionEffect;
 public:
 	ACoopGameProjectile();
 
